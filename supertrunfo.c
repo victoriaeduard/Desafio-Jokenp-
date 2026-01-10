@@ -4,8 +4,9 @@
 
 int main (){
 
+//variaveis
 int jogador, pc, atributo;
-
+//variaveis de acordo com a escolha, valores 0,1 e 2
 int populacao [3] = {220.05, 341.96, 123.20};
 float pib [3] = {11.8, 28.6, 2.3};
 float area [3] = {8516.8, 9834.4, 378.5};
@@ -13,6 +14,7 @@ int turistas [3] = {34, 41, 25};
 float densidade [3] = {28.3, 38.2, 338.6};
 float trunfo [3] = {8.804, 10.273, 869.4};
 
+//inicio do jogo e coleta de informações
 printf("Bem-vindo ao Super Trunfo! Anter de começar, confira o funcionamento do jogo:");
 printf("O jogo consiste em escolher o atributo de uma carta para compará-la a outra. Ganha a carta com valor mais alto, com exceção do atributo Densidade.");
 printf("Primeiro escolha uma carta:\n");
@@ -29,9 +31,11 @@ printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo);
 printf("\n\n");
 
+//gerador de numero aleatório
 srand (time(0));
 pc = rand() % 3 + 1;
 
+//apresentação da escola da carta do jogador e computador
 switch (jogador){
 case 1:
 printf("Jogador: Carta 01B ");
@@ -60,9 +64,11 @@ printf("Computador: Carta 03J \n");
 printf("Escolha invalida.");
 }
 
+//variaveis para "colar" as informações de cada carta
 int idjogador = jogador - 1;
 int idpc = pc - 1;
 
+//apresentação da carta do jogador
 if (jogador == 1){
     printf("--Você escolheu a Carta 01B--\nBrasil\nPopulação: %d\nÁrea: %f\nPIB: %f\nPontos Turísticos: %d\nDensidade Demográfica: %f\nSuper Trunfo: %f\n", populacao [idjogador], area [idjogador], pib [idjogador], turistas [idjogador], densidade [idjogador], trunfo [idjogador]);
 }
@@ -74,6 +80,7 @@ if (jogador == 3){
 }
 
 printf("\n\n");
+//exibição do atributo escolhido
 printf("--Hora da batalha!--\n");
 switch (atributo){
     case 1:
@@ -96,6 +103,7 @@ printf("Escolha invalida.");
 }
 
 printf("\n\n");
+//resultado definitivo
 printf("--Resultado final--\n");
 if (atributo == 1){
     if (populacao [idjogador] > populacao [idpc]){
