@@ -185,6 +185,11 @@ printf("Escolha invalida.");
 printf("\n\n");
 //resultado definitivo
 printf("--Resultado final--\n");
+
+if (idjogador == idpc){
+    printf("Cartas iguais. Empate!");
+}
+
 if (atributo == 1) {
 populacao [idjogador] > populacao [idpc] ? printf("###Primeiro atributo: Você venceu!###\n") : printf("###Você perdeu!###\n"); }
 
@@ -202,7 +207,6 @@ densidade [idjogador] < densidade [idpc] ? printf("###Primeiro atributo: Você v
 
 if (atributo == atributo2){ printf ("Atributo repetido. Jogo encerrado.");
 }
-return 0;
 
 if (atributo2 == 1){
 populacao [idjogador] > populacao [idpc] ? printf("###Você venceu!###\n") : printf("###Segundo Atributo: Você perdeu!###");
