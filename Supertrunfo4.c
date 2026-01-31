@@ -4,9 +4,8 @@
 
 int main (){
 
-//variaveis
+//variaveis para separar pc de jogador e os atributos
 int jogador, pc, atributo, atributo2;
-int resultado1, resultado2;
 //variaveis de acordo com a escolha, valores 0,1 e 2
 float populacao [3] = {220.05, 341.96, 123.20};
 float pib [3] = {11.8, 28.6, 2.3};
@@ -15,14 +14,15 @@ int turistas [3] = {34, 41, 25};
 float densidade [3] = {28.3, 38.2, 338.6};
 float trunfo [3];
 
+//calculo do super trunfo
 trunfo[0] = populacao[0] + area[0] + pib[0] + turistas[0] + densidade[0];
 trunfo[1] = populacao[1] + area[1] + pib[1] + turistas[1] + densidade[1];
 trunfo[2] = populacao[2] + area[2] + pib[2] + turistas[2] + densidade[2];
 
 //inicio do jogo e coleta de informações
-printf("Bem-vindo ao Super Trunfo! Anter de começar, confira o funcionamento do jogo:");
-printf("O jogo consiste em escolher dois atributos de uma carta para compará-la a outra. Ganha a carta com valor mais alto, com exceção do atributo Densidade.");
-printf("Primeiro escolha uma carta:\n");
+printf("Bem-vindo ao Super Trunfo! Anter de começar, confira o funcionamento do jogo:\n");
+printf("Você deve escolher dois atributos de uma carta para compará-la a outra, e ganha a carta com valor mais alto, com exceção do atributo Densidade, e ao final há uma rodada bônus.");
+printf("Para começar, escolha uma carta:\n");
 printf("1. Carta 01B\n");
 printf("2. Carta 02E\n");
 printf("3. Carta 03J\n");
@@ -32,7 +32,7 @@ scanf("%d", &jogador);
 srand (time(0));
 pc = rand() % 3 + 1;
 
-//variaveis para "colar" as informações de cada carta
+//variaveis para definir as cartas e as informações usadas
 int idjogador = jogador - 1;
 int idpc = pc - 1;
 printf("\n\n");
@@ -48,7 +48,7 @@ if (jogador == 3){
 }
 printf("\n\n");
 
-printf("Agora escolha o primeiro Atributo para comparar:\n");
+printf("Escolha o primeiro Atributo para comparar:\n");
 printf("1. População\n");
 printf("2. Área\n");
 printf("3. PIB\n");
@@ -56,10 +56,12 @@ printf("4. Pontos Turisticos\n");
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo);
 
+//cada case elimina manualmente a opção escolhida anteriormente
 switch (atributo){
     case 1:
 printf("Agora escolha o segundo Atributo para comparar:\n"); 
-printf("2. Área\n"); printf("3. PIB\n"); 
+printf("2. Área\n");
+printf("3. PIB\n"); 
 printf("4. Pontos Turisticos\n"); 
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo2);
@@ -98,6 +100,7 @@ scanf("%d", &atributo2);
 break;
 }
 printf("\n\n");
+//encerramento do jogo caso atributos sejam repetidos
 if (atributo == atributo2){ printf("Atributos iguais. Jogo encerrado!"); 
 return 0; }
 
@@ -130,6 +133,7 @@ printf("Computador: Carta 03J \n");
 printf("Escolha invalida.");
 }
 
+//caso o gerador escolha a mesma carta, o jogo também é encerrado
 if (idjogador == idpc){
     printf("Cartas iguais. Empate!");
 return 0; }
@@ -188,5 +192,9 @@ default:
 printf("Escolha invalida.");
 }
 printf("\n");
-printf("###Atributo Especial SUPER TRUNFO###\nJogador: %f - Computador: %f", trunfo [idjogador], trunfo [idpc]);
+//bônus a parte
+printf("###Atributo Especial SUPER TRUNFO###\nJogador: %f - Computador: %f\n", trunfo [idjogador], trunfo [idpc]);
+trunfo [idjogador] > trunfo [idpc] ? printf("###Rodada ganha!###\n") : printf("###Rodada perdida!###\n");
+
+return 0;
 }
