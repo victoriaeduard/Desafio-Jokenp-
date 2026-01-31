@@ -57,18 +57,15 @@ printf("4. Pontos Turisticos\n");
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo);
 
-switch (atributo == 1){
+switch (atributo){
     case 1:
-printf("Agora escolha o segundo Atributo para comparar:\n");
-printf("2. Área\n");
-printf("3. PIB\n");
-printf("4. Pontos Turisticos\n");
+printf("Agora escolha o segundo Atributo para comparar:\n"); 
+printf("2. Área\n"); printf("3. PIB\n"); 
+printf("4. Pontos Turisticos\n"); 
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo2);
 break;
-}
-switch (atributo == 2){
-    case 1:
+    case 2:
 printf("Agora escolha o segundo Atributo para comparar:\n");
 printf("1. População\n");
 printf("3. PIB\n");
@@ -76,9 +73,7 @@ printf("4. Pontos Turisticos\n");
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo2);
 break;
-}
-switch (atributo == 3){
-    case 1:
+    case 3:
 printf("Agora escolha o segundo Atributo para comparar:\n");
 printf("1. População\n");
 printf("2. Área\n");
@@ -86,9 +81,7 @@ printf("4. Pontos Turisticos\n");
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo2);
 break;
-}
-switch (atributo == 4){
-    case 1:
+    case 4:
 printf("Agora escolha o segundo Atributo para comparar:\n");
 printf("1. População\n");
 printf("2. Área\n");
@@ -96,9 +89,7 @@ printf("3. PIB\n");
 printf("5. Densidade Demográfica\n");
 scanf("%d", &atributo2);
 break;
-}
-switch (atributo == 5){
-    case 1:
+    case 5:
 printf("Agora escolha o segundo Atributo para comparar:\n");
 printf("1. População\n");
 printf("2. Área\n");
@@ -108,6 +99,10 @@ scanf("%d", &atributo2);
 break;
 }
 printf("\n\n");
+
+if (atributo == atributo2){ printf("Atributos iguais. Jogo encerrado!"); 
+}
+return 0;
 
 //apresentação da escolha da carta do jogador e computador
 switch (jogador){
@@ -137,6 +132,11 @@ printf("Computador: Carta 03J \n");
     default:
 printf("Escolha invalida.");
 }
+
+if (idjogador == idpc){
+    printf("Cartas iguais. Empate!");
+}
+return 0;
 
 printf("\n\n");
 //exibição do atributo escolhido
@@ -181,18 +181,15 @@ printf("Segundo Atributo: Densidade Demográfica\nJogador: %f - Computador: %f\n
 default:
 printf("Escolha invalida.");
 }
+printf("\n");
+printf("###Atributo Especial SUPER TRUNFO###\nJogador: %f - Computador: %f", trunfo [idjogador], trunfo [idpc]);
 
 printf("\n\n");
 //resultado definitivo
 printf("--Resultado final--\n");
 
-if (idjogador == idpc){
-    printf("Cartas iguais. Empate!");
-}
-return 0;
-
-if (atributo == 1) {
-populacao [idjogador] > populacao [idpc] ? printf("###Primeiro atributo: Você venceu!###\n") : printf("###Você perdeu!###\n"); }
+if (atributo == 1 (populacao [idjogador] > populacao [idpc])){ printf("###Primeiro atributo: Você venceu!###\n");
+} else if{ printf("###Você perdeu!###\n"); }
 
 if (atributo == 2){
 area [idjogador] > area [idpc] ? printf("###Primeiro atributo: Você venceu!###\n") : printf("###Primeiro atributo: Você perdeu!###\n"); }
