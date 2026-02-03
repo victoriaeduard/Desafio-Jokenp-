@@ -17,9 +17,9 @@ printf("Simulação do movimento de peças de xadrez com o Bispo:\n");
 //execução do movimento do Bispo com do-while
 do {
     printf("%d", i2);
-    i++;
     if (i2 <= 5){
         printf("O bispo se moveu %d para direita\n", i2);
+        i2++
     }
 } while (i2 <= 5);
 
