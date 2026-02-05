@@ -3,7 +3,7 @@
 int main (){
 
     //introdução das variaveis
-    int i = 1, i2 = 1;
+    int i = 1, i2 = 1, i4 = 1;
 
 printf("Simulação do movimento de peças de xadrez com a Torre:\n");
 //execução do movimento da Torre com while
@@ -28,6 +28,14 @@ printf("Simulação do movimento de peças de xadrez com a Rainha:\n");
 for (int i3 = 1; i3 <= 8; i3++){
     printf("A Rainha se moveu %d casa(s) para esquerda\n", i3);
 }
+
+//execução do movimento do Cavalo com aninhamento for/do-while
+for (int i4 = 1; i4 <= 2; i4++){
+ printf("O Cavalo se moveu %d casa para baixo.");
+} do{
+ if (i4 + 1){
+ } printf("O Cavalo se moveu mais uma casa para esquerda.")
+} while (i4<=2);
 
 return 0;
 }
