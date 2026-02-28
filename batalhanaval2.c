@@ -13,9 +13,9 @@ int main() {
     }
 
 //posição dos navios
-    tabuleiro[4][4] = 3;
-    tabuleiro[4][5] = 3;
-    tabuleiro[4][6] = 3;
+    tabuleiro[5][5] = 3;
+    tabuleiro[5][6] = 3;
+    tabuleiro[5][7] = 3;
 
     tabuleiro[6][7] = 3;
     tabuleiro[7][7] = 3;
@@ -47,10 +47,24 @@ int main() {
     }
 
 //octaedro
-    for(int i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
-        }
+for(int i = 0; i < 5; i++){
+    for(int j = 0; j < 5; j++){
+
+
+        int linhaDist = i - 2;
+        if(linhaDist < 0) linhaDist = -linhaDist;
+
+
+        int colDist = j - 2;
+        if(colDist < 0) colDist = -colDist;
+
+
+        if(linhaDist + colDist <= 2)
+            octaedro[i][j] = 1;
+        else
+            octaedro[i][j] = 0;
     }
+}
 
 //pontos de origem
     int origemLinha, origemColuna;
