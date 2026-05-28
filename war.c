@@ -43,12 +43,17 @@ int n;
 srand(time(NULL));
 territorio *mundo = NULL;
 
-//introdução
-printf("================================\n");
+//introdução de mundo
+do {
+    printf("================================\n");
 printf("CONSTRUINDO O MUNDO\n");
 printf("================================\n");
-printf("Digite o número desejado de territórios:");
+printf("Digite o número desejado de territórios (entre 2 e 10):");
 scanf("%d", &n);
+
+if (n > 10 || n < 2){
+    printf("Número de territórios invalido. Tente outro número.");
+}} while (n > 2 || n < 10);
 
 //define quantidade de territorios e aloca a quantidade
 mundo = calloc(n, sizeof(territorio));
