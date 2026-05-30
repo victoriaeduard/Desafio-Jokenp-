@@ -3,13 +3,20 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 //função para guardar as informações dos territorios
 typedef struct{
     char nome[30];
     char cor[10];
     int tropa;
 } territorio;
+
+char* missoes[5] = {
+    "Conquiste um territorio",
+    "Venca 3 batalhas",
+    "Possua 10 tropas",
+    "Elimine um exercito inimigo",
+    "Controle todos os territorios"
+};
 
 void atacar (territorio* atacante, territorio* defensor){
    //rolagem de dados
@@ -36,9 +43,7 @@ void atacar (territorio* atacante, territorio* defensor){
 int main (){
 
 //define número de territórios e posições
-int i = 0;
-int j = 1;
-int n;
+int i = 0, j = 1, n, vitorias;
 
 srand(time(NULL));
 territorio *mundo = NULL;
@@ -80,8 +85,7 @@ while (i < n){
     printf("Número de Tropas: %d\n", mundo[i].tropa);
     i++;}
 
-int escolha_atacante, escolha_defensor;
-int opcao;
+int escolha_atacante, escolha_defensor, opcao;
 
 //começando o jogo
 printf("===============\n");
