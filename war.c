@@ -14,8 +14,8 @@ char* missoes[5] = {
     "Conquiste um territorio",
     "Venca 3 batalhas",
     "Possua 10 tropas",
-    "Elimine um exercito inimigo",
-    "Controle todos os territorios"
+    "Elimine um exército inimigo",
+    "Controle todos os territórios"
 };
 
 void atacar (territorio* atacante, territorio* defensor){
@@ -40,25 +40,39 @@ void atacar (territorio* atacante, territorio* defensor){
         printf("O Exército %s foi CONQUISTADO pelo Exército %s\n", defensor->cor, atacante->cor);
     }}
 
+void mostrar_mundo(territorio mundo[], int n)
+{
+    int i = 0;
+    printf("====================\n");
+    printf("ATUALIZAÇÃO DO MUNDO\n");
+
+    while (i < n){
+        printf("====================\n");
+        printf("Território %d: %s\n", i + 1, mundo[i].nome);
+        printf("Cor do Exército: %s\n", mundo[i].cor);
+        printf("Número de Tropas: %d\n", mundo[i].tropa);
+        i++;
+    }
+    printf("---------------------\n");
+}
+
 int main (){
 
 //define número de territórios e posições
-int i = 0, j = 1, n, vitorias;
+int i = 0, j = 1, n;
 
 srand(time(NULL));
 territorio *mundo = NULL;
 
 //introdução de mundo
-do {
-    printf("================================\n");
+printf("================================\n");
 printf("CONSTRUINDO O MUNDO\n");
 printf("================================\n");
 printf("Digite o número desejado de territórios (entre 2 e 10):");
 scanf("%d", &n);
 
-if (n > 10 || n < 2){
-    printf("Número de territórios invalido. Tente outro número.");
-}} while (n > 2 || n < 10);
+if (n > 10 || n < 2) {
+    printf("Número inválido.");}
 
 //define quantidade de territorios e aloca a quantidade
 mundo = calloc(n, sizeof(territorio));
@@ -87,6 +101,8 @@ while (i < n){
 
 int escolha_atacante, escolha_defensor, opcao;
 
+//zera o contador para mostrar no mapa com void
+int iniciador = 0;
 //começando o jogo
 printf("===============\n");
 printf("HORA DO JOGO\n");
@@ -98,22 +114,11 @@ do{
     printf("Escolha o território defensor:");
     scanf("%d", &escolha_defensor);
     atacar(&mundo[escolha_atacante - 1], &mundo[escolha_defensor - 1]);
-    
-    i = 0;
-    //exibição do mundo
-    printf("====================\n");
-    printf("ATUALIZAÇÃO DO MUNDO\n");
-    while (i < n){
-    printf("====================\n");
-    printf("Território %d: %s\n", i + 1, mundo[i].nome);
-    printf("Cor do Exército: %s\n", mundo[i].cor);
-    printf("Número de Tropas: %d\n", mundo[i].tropa);
-    i++;}
-    printf("---------------------\n");
+    mostrar_mundo(mundo, n);
 
 printf("Deseja continuar o jogo?.\n1. SIM.\n2. NÂO.");
 scanf("%d", &opcao);
-printf("------------------------");
+printf("------------------------\n");
     } while (opcao == 1);
     printf("Programa Fechado, Espaço Liberado.");
 
